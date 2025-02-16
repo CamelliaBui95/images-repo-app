@@ -6,10 +6,10 @@ const MAX_ATTEMPS = 3
 export const Users: CollectionConfig = {
   slug: 'users',
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: 'username',
   },
   auth: {
-    verify: true,
+    // verify: true,
     loginWithUsername: {
       allowEmailLogin: true,
       requireEmail: true,
@@ -20,9 +20,16 @@ export const Users: CollectionConfig = {
   },
   fields: [
     {
+      name: 'email',
+      type: 'email',
+      required: true,
+      unique: true,
+    },
+    {
       name: 'username',
       type: 'text',
       required: true,
+      unique: true,
     },
     { name: 'firstname', type: 'text', required: true },
     { name: 'lastname', type: 'text', required: true },
